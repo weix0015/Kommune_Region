@@ -37,4 +37,17 @@ public class ApiServiceKommunerImpl implements ApiServiceKommuner
         return kommuneList;
     }
 
+    @Override
+    public List<Kommune> getKommune() {
+        String kommuneURL = "https://api.dataforsyningen.dk/kommuner/{kode}";
+
+        ResponseEntity<List<Kommune>> listResponseEntity =
+                restTemplate.exchange(kommuneURL, HttpMethod.GET, null,
+                        new ParameterizedTypeReference<List<Kommune>>()
+                        {});
+        List<Kommune> kommuneList = listResponseEntity.getBody();
+        saveKommuner(kommuneList);
+        return kommuneList;
+    }
+
 }

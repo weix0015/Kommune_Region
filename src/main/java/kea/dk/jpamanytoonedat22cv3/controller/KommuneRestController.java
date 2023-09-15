@@ -24,6 +24,17 @@ public class KommuneRestController
     List<Kommune> getKommuner(){
         return apiServiceKommuner.getKommuner();
     }
+
+    @GetMapping("/getkommuneby/{kode}")
+    public ResponseEntity<String> getkomunne(@PathVariable("kode") String kode) {
+        try {
+            kommuneRepository.findByKode(kode);
+            return ResponseEntity.ok(kode);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error getting Kommune");
+        }
+    }
+
     @DeleteMapping("/kommune/{regionId}")
     public ResponseEntity<String> deleteKommuneByRegionId(@PathVariable String regionId) {
         try {
@@ -34,10 +45,12 @@ public class KommuneRestController
         }
     }
 
+    /*
     @GetMapping("/getkommune/{kode}")
     public ResponseEntity<List<Kommune>> getKommuneByRegion(@PathVariable("kode") String kode){
         List<Kommune> kommuneList = kommuneRepository.findByRegionKode(kode);
         return ResponseEntity.ok(kommuneList);
     }
+    */
 
 }

@@ -19,6 +19,17 @@ public class Kommune
     @JoinColumn(name = "region", referencedColumnName = "kode")
     Region region;
 
+    public Kommune(String kode, String navn, String href, Region region) {
+        this.kode = kode;
+        this.navn = navn;
+        this.href = href;
+        this.region = region;
+    }
+
+    public Kommune() {
+
+    }
+
     public String getKode()
     {
         return kode;
