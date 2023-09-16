@@ -26,13 +26,13 @@ public class RegionRestController
     RegionRepository regionRepository;
 
 
-    @GetMapping("/getregioner")
+    @GetMapping("/regioner")
     List<Region> getRegioner()
     {
         return apiServiceRegion.getRegioner();
     }
 
-    @DeleteMapping("/deleteregion/{kode}")
+    @DeleteMapping("/region/{kode}")
     public ResponseEntity<String> deleteRegion(@PathVariable("kode") String kode)
     {
         Optional<Region> optionalRegion = regionRepository.findById(String.valueOf(kode));

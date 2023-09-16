@@ -15,7 +15,7 @@ public class Kommune
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "region", referencedColumnName = "kode")
     Region region;
 
