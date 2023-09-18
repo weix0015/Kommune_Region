@@ -1,7 +1,6 @@
 package kea.dk.jpamanytoonedat22cv3.controller;
 
 import kea.dk.jpamanytoonedat22cv3.model.Kommune;
-import kea.dk.jpamanytoonedat22cv3.model.Region;
 import kea.dk.jpamanytoonedat22cv3.repository.KommuneRepository;
 import kea.dk.jpamanytoonedat22cv3.service.ApiServiceKommunerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class KommuneRestController
     @Autowired
     KommuneRepository kommuneRepository;
     @GetMapping("/kommuner")
-    List<Kommune> getKommuner(){
+    List<Kommune> getKommuner() {
         return apiServiceKommuner.getKommuner();
     }
     @GetMapping("/kommune/{kode}")

@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class Kommune
-{
+public class Kommune {
 
 
     @Id
